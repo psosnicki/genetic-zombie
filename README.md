@@ -12,7 +12,7 @@ Simple Genetic Algorithm simulation in Unity - zombies evolution - avoiding obst
 * You can create your own population:
     * inherit from [```Population<T>```](https://github.com/psosnicki/genetic-zombie/blob/master/Assets/Scripts/Population.cs)
     
-    * create your own individual and implement [```Individual```](https://github.com/psosnicki/genetic-zombie/blob/master/Assets/Scripts/Individual.cs) interface
+   * create your own individual and implement [```Individual```](https://github.com/psosnicki/genetic-zombie/blob/master/Assets/Scripts/Individual.cs)
 
 * You can change algorithm parameters and move obstacles during simulation
 

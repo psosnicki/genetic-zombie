@@ -1,25 +1,21 @@
 using Assets.Scripts;
 using UnityEngine;
 
-public class Zombie : MonoBehaviour,  Individual
+public class Zombie : Individual
 {
     private SpriteRenderer _spriteRenderer;
-    private Chromosome _chromosome;
     private int _pathIndex = 0;
-    private Vector2 _nextPosition, _target;
+    private Vector2 _nextPosition;
     private bool _pathCompleted;
-    private bool _crashed, _ready;
+    private bool _crashed;
     private Color _crashedColor = Color.red;
     private readonly string _deadAnimationTirgger = "DeadTrigger";
-
-    public bool IsActive => !_pathCompleted && !_crashed;
-    public Chromosome Chromosome => _chromosome;
-    public bool Crashed => _crashed;
+    public override bool IsActive => !_pathCompleted && !_crashed;
+    public override bool Crashed => _crashed;
     public LayerMask ObstaclesLayer;
     public float Speed = 10f;
     public float TargetDistance => Vector2.Distance(transform.position, _target);
-
-    public  float Fitness()
+    public override float Fitness()
     {
         var hitsFactor = 1f;
         if (Settings.Instance.EnableObstacleRaycast)
@@ -31,13 +27,6 @@ public class Zombie : MonoBehaviour,  Individual
         if (targetDistance == 0)
             targetDistance = 0.009f;
         return hitsFactor * (_crashed ? 0.5f : 1f) / targetDistance;
-    }
-
-    public  void Create(Chromosome chromosome, Vector2 target)
-    {
-        _chromosome = chromosome;
-        _target = target;
-        _ready = true;
     }
 
     void Start()

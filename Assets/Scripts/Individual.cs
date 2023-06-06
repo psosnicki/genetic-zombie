@@ -2,12 +2,20 @@
 
 namespace Assets.Scripts
 {
-    public interface Individual
+    public abstract class Individual: MonoBehaviour
     {
-        public Chromosome Chromosome { get; }
-        public bool IsActive { get; }
-        public bool Crashed { get; }
-        public void  Create(Chromosome chromosome, Vector2 target);
-        public float Fitness();
+        protected bool _ready;
+        protected Vector2 _target;
+        protected Chromosome _chromosome;
+        public Chromosome Chromosome => _chromosome;
+        public abstract bool IsActive { get; }
+        public abstract bool Crashed { get; }
+        public void Create(Chromosome chromosome, Vector2 target)
+        {
+            _chromosome = chromosome;
+            _target = target;
+            _ready = true;
+        }
+        public abstract float Fitness();
     }
 }

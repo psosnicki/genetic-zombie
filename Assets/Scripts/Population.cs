@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class Population<T> : ScriptableObject, IPopulation<T> where T : MonoBehaviour, Individual
+public class Population<T> : ScriptableObject, IPopulation<T> where T : Individual
 {
     protected int _populationSize;
     protected int _genomeLength;

@@ -2,7 +2,7 @@
 
 namespace Assets.Scripts
 {
-    public interface IPopulation<T> where T : MonoBehaviour, Individual
+    public interface IPopulation<T> where T : Individual
     {
         int CurrentGeneration { get; }
         bool HasAnyActiveIndividuals { get; }
