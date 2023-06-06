@@ -10,10 +10,10 @@ public class Zombie : Individual
     private bool _crashed;
     private Color _crashedColor = Color.red;
     private readonly string _deadAnimationTirgger = "DeadTrigger";
+
     public override bool IsActive => !_pathCompleted && !_crashed;
     public override bool Crashed => _crashed;
     public LayerMask ObstaclesLayer;
-    public float Speed = 10f;
     public float TargetDistance => Vector2.Distance(transform.position, _target);
     public override float Fitness()
     {

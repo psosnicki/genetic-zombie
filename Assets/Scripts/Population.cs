@@ -37,8 +37,8 @@ public class Population<T> : ScriptableObject, IPopulation<T> where T : Individu
                                .Take(Mathf.RoundToInt(_eliteThreshold * _populationSize))
                                .ToList();
 
-        foreach (var probe in _population)
-            Destroy(probe);
+        foreach (var individual in _population)
+            Destroy(individual);
         _population.Clear();
 
         for (int k = 0, i = 0; i < _populationSize; k++)
